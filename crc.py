@@ -1,17 +1,18 @@
 #!/usr/bin/env python
-#from pycrc.crclib import Sender, Receiver, Channel
 from pycrc.crclib import *
+
 def main():
 #-----------------------------------------------------------------------------
 #Sender
 
-    divisor = str(raw_input("Input divisor in binary type: "))
-    #user_dataword = str(raw_input("Input dataword in binary type: "))
-    user_dataword = '10100111'
-
+    user_dataword = str(raw_input("Input dataword in binary format: "))
+    divisor = str(raw_input("Input divisor in binary format: "))
+   
+    #user_dataword = '11010011101100'
+    
     print "\nSender:"
     
-    sender = Sender(bin2dec(user_dataword), divisor)
+    sender = Sender(user_dataword, divisor)
     sender.send()
     
     print "arg_dataword:", sender.arg_dataword2
@@ -23,8 +24,9 @@ def main():
 
     print "\nChannel:"
 
-    channel = Channel(sender.codeword)
-    print "Throgh to the channel get channel codeword:", dec2bin(channel.ch_codeword)
+    channel = Channel(sender.codeword, rate=0.2)
+    #Error Rate 20%, By Default 30%
+    print "Throgh to the channel get channel codeword:", channel.ch_codeword2
      
 #-----------------------------------------------------------------------------
 #Receiver
