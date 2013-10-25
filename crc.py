@@ -7,7 +7,7 @@ def main():
 
     divisor = str(raw_input("Input divisor in binary type: "))
     #user_dataword = str(raw_input("Input dataword in binary type: "))
-    user_dataword = '1001'
+    user_dataword = '10100111'
 
     print "\nSender:"
     
